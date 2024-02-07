@@ -1,0 +1,33 @@
+{% extends "site/base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="main-container">
+        <div class="filler"></div>
+
+        <div class="main-content">
+            <div class="courses">
+                <h1>Топ курсов</h1>
+                <div class="top-courses-list">
+
+                    {% for course in courses %}
+                        <div class="course-card">
+                            <img class="course-logo" src="/media/{{ course.photo }}" alt="">
+                            <h3 class="course-title">{{ course.name }}</h3>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="filler"></div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+* {
+    font-family: "Roboto", sans-serif;
+
+    margin: 0;
+    padding: 0;
+
+    outline: none;
+    border: none;
+
+    overflow-wrap: break-word;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: .17px;
+}
+
+body, html {
+    background-color: var(--bg-color);
+}
+
+.navbar {
+    width: 100vw;
+    height: 60px;
+    background-color: var(--dark);
+    color: var(--bg-color);
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+}
+
+.navbar > .title {
+    background-color: var(--dark);
+}
+
+#home {
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    display: flex;
+}
+
+.navbar > .title > a > h1 {
+    background-color: var(--dark);
+    padding: 0;
+    font-size: 22px;
+    margin: auto 1rem;
+}
+
+.content {
+    height: calc(100vh - 60px - 2rem);
+    max-height: calc(100vh - 60px - 2rem);
+    overflow-y: scroll;
+    padding: 1rem;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+#profile {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-flow: row;
+    flex-direction: row-reverse;
+}
+
+#profile > a {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: auto 0;
+}
+
+#profile > a > h1 {
+    padding-left: 0.3rem;
+    margin: auto;
+    font-size: 24px;
+}
+
+.links, #profile {
+    height: 100%;
+}
+
+.buttons {
+    display: flex;
+    height: 100%;
+    flex-direction: row-reverse;
+    margin-right: 1rem;
+}
+
+.buttons > h1 {
+    flex-direction: row-reverse;
+    margin: auto;
+    margin-right: 1rem;
+}
+
+#login, #reg {
+    margin: auto 1rem;
+    background-color: var(--dark);
+    color: white;
+    text-decoration: none;
+    outline: 1px solid white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+#profile-logo {
+    font: 36px "Material Symbols Outlined";
+    padding-left: 0.3rem;
+}
+
+#profile > a {
+    margin: auto 1rem;
+    background-color: var(--dark);
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+#login:hover, #reg:hover {
+    background-color: white;
+    color: var(--dark);
+}

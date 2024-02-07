@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/vars.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="navbar">
+            <div class="title">
+                <a id="home" href="/">
+                    <h1>Название</h1>
+                </a>
+            </div>
+            <div class="filler"></div>
+        </div>
+
+        <div class="content">
+            <div class="login-form">
+                <form method="POST">
+                    {% for f in form %}
+                    <div class="form-element">
+                        {{f}}
+                    </div>
+                    {% endfor %}
+
+                    {% csrf_token %}
+                    <div class="button_block">
+                        <button class="" type="submit">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
