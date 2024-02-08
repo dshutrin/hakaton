@@ -21,14 +21,17 @@ body, html {
 .navbar {
     width: 100vw;
     height: 60px;
-    background-color: var(--dark);
+    /*background-color: var(--dark);*/
+    background: linear-gradient(#574ab4, #512ea8);
     color: var(--bg-color);
     display: grid;
     grid-template-columns: 20% 50% 30%;
 }
 
 .navbar > .title {
-    background-color: var(--dark);
+    background-color: transparent;
+    /*background-color: var(--dark);*/
+    /*background: linear-gradient(#574ab4, #512ea8);*/
 }
 
 #home {
@@ -39,7 +42,7 @@ body, html {
 }
 
 .navbar > .title > a > h1 {
-    background-color: var(--dark);
+    background-color: transparent;
     padding: 0;
     font-size: 22px;
     margin: auto 1rem;
@@ -79,6 +82,7 @@ body, html {
 
 .links, #profile {
     height: 100%;
+    background-color: transparent;
 }
 
 .buttons {
@@ -96,7 +100,7 @@ body, html {
 
 #login, #reg {
     margin: auto 1rem;
-    background-color: var(--dark);
+    background-color: transparent;
     color: white;
     text-decoration: none;
     outline: 1px solid white;
@@ -111,14 +115,68 @@ body, html {
 
 #profile > a {
     margin: auto 1rem;
-    background-color: var(--dark);
     color: white;
     text-decoration: none;
     padding: 0.3rem 0.5rem;
     border-radius: 5px;
+    background-color: transparent;
 }
 
 #login:hover, #reg:hover {
     background-color: white;
     color: var(--dark);
+}
+
+#notes {
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+}
+
+.notes-count {
+    height: 100%;
+    display: flex;
+    color: white;
+    padding-top: 0.2rem;
+}
+
+#notes-modal {
+    position: fixed;
+    top: 3rem;
+    height: 50vh;
+    width: 20vw;
+    right: 10%;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
+    border: 2px solid rgba(255, 255, 255, 0.31);
+    padding: 0.5rem;
+
+    overflow-y: scroll;
+}
+
+.notification {
+    border-radius: 10px;
+    width: calc(100% - 0.8rem);
+    border: 1px solid var(--blue);
+    box-shadow: 0 0 5px 1px var(--blue);
+    margin-bottom: 0.5rem;
+    padding: 0.4rem;
+}
+
+#notes-modal::-webkit-scrollbar {
+    display: none;
+}
+
+.note-title {
+    width: 100%;
+}
+
+.note-link {
+    width: 100%;
+    text-align: end;
+    text-decoration: none;
 }

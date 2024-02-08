@@ -31,6 +31,12 @@
                                 </span>
                                 <h1>{{ request.user.username }}</h1>
                             </a>
+                            <span id="notes-count" class="notes-count">
+                                (3)
+                            </span>
+                            <button id="notes" class="material-symbols-outlined" onclick="show_notes()">
+                                notifications_active
+                            </button>
                         </div>
                     </div>
                 {% else %}
@@ -51,5 +57,18 @@
 
     {% block scripts %}
     {% endblock %}
+
+    <div id="notes-modal" style="display: none;">
+        {% for note in notes %}
+            <div class="notification">
+                <h1 class="note-title">{{ note.title }}</h1>
+                <a class="note-link" href="sdfsd"><h2>{{ note.link }}</h2></a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <input type="number" id="user_id" value="{{ request.user.id }}" hidden>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script>update_notes_count()</script>
 </body>
 </html>
