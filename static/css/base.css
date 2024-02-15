@@ -154,6 +154,7 @@ body, html {
     -webkit-backdrop-filter: blur(8.3px);
     border: 2px solid rgba(255, 255, 255, 0.31);
     padding: 0.5rem;
+    z-index: 10;
 
     overflow-y: scroll;
 }
@@ -179,4 +180,6 @@ body, html {
     width: 100%;
     text-align: end;
     text-decoration: none;
+    color: blue;
+    cursor: pointer;
 }

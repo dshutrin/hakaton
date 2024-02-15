@@ -1,0 +1,128 @@
+.main-container {
+    width: 100%;
+    height: calc(100vh - 60px - 2rem);
+    max-height: calc(100vh - 60px - 2rem);
+    overflow-y: scroll;
+
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.main-container::-webkit-scrollbar {
+    display: none;
+}
+
+.my-courses-list {
+    width: 100%;
+    height: calc(100% + 2vh);
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    margin: 2rem 0;
+    padding: 0;
+    align-items: center;
+}
+
+.my-courses-list::-webkit-scrollbar {
+    display: none;
+}
+
+.course-card {
+    min-width: 90%;
+    max-width: 90%;
+    min-height: 15vh;
+    max-height: 15vh;
+    margin: 1vh 1.5rem;
+    padding: 0;
+    border-radius: 12px;
+    text-decoration: none;
+
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+    -webkit-box-shadow: 0px 5px 11px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 11px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 11px 2px rgba(34, 60, 80, 0.2);
+
+    transition: all 0.3s;
+}
+
+.course-card:hover {
+    -webkit-box-shadow: 0px 0px 11px 10px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 11px 10px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 11px 10px rgba(34, 60, 80, 0.2);
+}
+
+.course-logo {
+    border-radius: 12px;
+    max-width: 8vw;
+    max-height: 4.5vw;
+    margin: auto 0;
+    transform: translateX(-15%);
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.card-text-data {
+    padding: 1rem 2rem;
+    color: var(--dark);
+    position: relative;
+}
+
+.course-title {
+    width: 100%;
+}
+
+.course-cat {
+    width: 100%;
+    font-size: 12px;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.my-courses {
+    margin-top: 1rem;
+}
+
+.profile-card {
+    height: 20vh;
+    max-height: 20vh;
+
+    background-color: var(--gray);
+    border-radius: 15px;
+}
+
+.main-content {
+    height: calc(100vh - 60px - 2rem);
+    max-height: calc(100vh - 60px - 2rem);
+    overflow-y: scroll;
+}
+
+.main-content::-webkit-scrollbar {
+    display: none;
+}
+
+.awards-content {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    height: 5vh;
+    max-height: 5vh;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.award {
+    text-align: center;
+}
+
+.award-photo {
+    height: 3vw;
+    transition: all 0.5s;
+}
+
+.award-photo:hover {
+    height: 4vw;
+}

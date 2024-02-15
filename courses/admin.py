@@ -16,3 +16,13 @@ class AdminCourseCategory(admin.ModelAdmin):
 @admin.register(Course)
 class AdminCourse(admin.ModelAdmin):
 	list_display = ('name', )
+
+
+@admin.register(Note)
+class AdminCourse(admin.ModelAdmin):
+	list_display = ('title', 'user', 'link', 'is_read')
+
+
+@admin.register(Award)
+class AdminCourse(admin.ModelAdmin):
+	list_display = ('title', )

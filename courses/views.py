@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login as user_login, logout as user_logout
 from django.http import HttpResponseRedirect, JsonResponse
@@ -49,23 +50,30 @@ def main_page(request):
 @csrf_exempt
 def get_user_notes_count(request, uid):
 	return JsonResponse({
-		'count': 10
+		'count': Note.objects.filter(user__id=uid, is_read=False).count()
 	})
 
 
 @csrf_exempt
 def get_user_notes(request, uid):
-	class Note:
-		def __init__(self):
-			self.title = 'Hello, i`m title'
-			self.link = 'hello, i`m link'
-
-		def as_json(self):
-			return {
-				'title': self.title,
-				'link': self.link
-			}
+	notes = [x.as_json() for x in Note.objects.filter(user__id=uid, is_read=False)]
 
 	return JsonResponse({
-		'notes': [Note().as_json() for i in range(10)]
+		'notes': notes
+	})
+
+
+@csrf_exempt
+def mark_note_as_read(request, note_id):
+	note = Note.objects.get(id=note_id)
+	note.delete()
+
+
+@login_required
+def profile(request, uid):
+	print(Course.objects.filter(authors__id=uid))
+
+	return render(request, 'site/profile.html', {
+		'my_courses': Course.objects.filter(authors__id=uid),
+		'awards': [Award.objects.get(id=1)]*5
 	})

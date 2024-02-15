@@ -1,0 +1,51 @@
+{% extends "site/base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+        <div class="left-block">
+            <div class="awards">
+                <h3>Достижения</h3>
+                <div class="awards-content">
+                    {% for award in awards %}
+                        <div class="award">
+                            <img class="award-photo" src="/media/{{ award.photo }}" alt="" title="{{ award.desc }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-card">
+
+            </div>
+            <div class="my-courses">
+                <h1>Мои курсы</h1>
+                <div class="my-courses-list">
+
+                    {% for course in my_courses %}
+                        <a href="/courses/{{ course.id }}" class="course-card">
+                            <img class="course-logo" src="/media/{{ course.photo }}" alt="">
+                            <div class="card-text-data">
+                                <h6 class="course-title">{{ course.name }}</h6>
+                                <span class="course-cat">{{ course.category.name }}</span>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="filler">
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

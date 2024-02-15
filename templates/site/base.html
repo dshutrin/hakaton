@@ -25,7 +25,7 @@
                 {% if request.user.is_authenticated %}
                     <div class="links">
                         <div id="profile">
-                            <a href="/profile">
+                            <a href="/profile/{{ request.user.id }}">
                                 <span id="profile-logo" class="material-symbols-outlined">
                                     account_circle
                                 </span>
@@ -62,7 +62,7 @@
         {% for note in notes %}
             <div class="notification">
                 <h1 class="note-title">{{ note.title }}</h1>
-                <a class="note-link" href="sdfsd"><h2>{{ note.link }}</h2></a>
+                <button class="note-link"  href="/{{ note.link }}"><h2>Перейти</h2></button>
             </div>
         {% endfor %}
     </div>

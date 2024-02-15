@@ -51,9 +51,6 @@
                 <h1>Меню</h1>
 
                 <ul>
-                    <li class="li-row"><a class="menu-link" href="/categoryes/{{ category.id }}">Мои курсы</a></li>
-                    <li class="li-row"><a class="menu-link" href="/categoryes/{{ category.id }}">Мои награды</a></li>
-
                     {% if request.user.is_authenticated %}
                         <li class="last"><a href="/logout" class="menu-link">Выход</a></li>
                     {% endif %}

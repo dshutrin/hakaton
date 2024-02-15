@@ -9,6 +9,16 @@ class Role(models.Model):
 	name = models.CharField(max_length=100, verbose_name='Роль')
 
 
+class Award(models.Model):
+	title = models.CharField(max_length=100, verbose_name='Заголовок')
+	desc = models.TextField(verbose_name='Описание', default='')
+	photo = models.ImageField(verbose_name='Значок', upload_to='awards_photos', validators=[award_image_validate])
+
+	class Meta:
+		verbose_name = 'Достижение'
+		verbose_name_plural = 'Достижения'
+
+
 class CustomUser(AbstractBaseUser):
 	username = models.CharField(verbose_name='Имя пользователя', max_length=150, null=False, default=None, unique=True)
 	email = models.EmailField(unique=True, null=True, default=None, blank=True)
@@ -22,6 +32,7 @@ class CustomUser(AbstractBaseUser):
 	photo = models.ImageField(verbose_name='Фото', upload_to='user_photos', null=True, blank=True)
 
 	role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, default=None, blank=True)
+	awards = models.ManyToManyField(Award, verbose_name='Достижения')
 
 	objects = CustomUserManager()
 	USERNAME_FIELD = 'username'
@@ -74,3 +85,23 @@ class Course(models.Model):
 	class Meta:
 		verbose_name = 'Курс'
 		verbose_name_plural = 'Курсы'
+
+
+class Note(models.Model):
+	title = models.CharField(verbose_name='Заголовок', max_length=255, null=False, default=None)
+	body = models.TextField(verbose_name='Сообщение', null=False, default=None)
+	user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, verbose_name='Получатель')
+	is_read = models.BooleanField(default=False, verbose_name='Прочитано')
+	link = models.URLField(verbose_name='Ссылка', null=False, default=None)
+
+	def as_json(self):
+		return {
+			'title': self.title,
+			'link': self.link,
+			'body': self.body,
+			'id': self.id
+		}
+
+	class Meta:
+		verbose_name = 'Уведомление'
+		verbose_name_plural = 'Уведомления'
