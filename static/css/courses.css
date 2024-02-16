@@ -1,0 +1,44 @@
+.course-logo {
+    width: 1000px;
+    margin-top: 0rem;
+    border-radius: 36px;
+}
+
+
+
+.main-container {
+    display: grid;
+    grid-template-columns: 67% 33%;
+}
+
+.name {
+    font-size: xxx-large;
+    margin-top: 20px;
+    padding-bottom: 1rem;
+}
+
+.category {
+   font-size: xx-large;
+}
+
+.theme {
+    font-size: x-large;
+    margin-top: 0.5rem;
+}
+
+.description {
+    font-size: large;
+    padding-bottom: 5rem;
+}
+
+.clear {
+    width: 60%;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--blue);
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    height: 40px;
+}
+

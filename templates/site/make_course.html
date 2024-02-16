@@ -1,0 +1,42 @@
+{% extends "site/base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/make_course.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+        <div class="left-block">
+        </div>
+
+        <div class="main-content">
+            <div class="course-form">
+                <div class="options">
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="form-element">
+                            <h2 style="font-size: 30px;">Создание курса</h2>
+                        </div>
+                        {% for f in form %}
+                        <div class="form-element">
+                            <label for="{{f.id_for_label}}">{{f.label}}:</label>
+                            {{f}}
+                        </div>
+                        {% endfor %}
+
+                        {% csrf_token %}
+                        <div class="button_block">
+                            <button class="sub" type="submit">Создать</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="filler">
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

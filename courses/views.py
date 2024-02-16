@@ -71,9 +71,58 @@ def mark_note_as_read(request, note_id):
 
 @login_required
 def profile(request, uid):
-	print(Course.objects.filter(authors__id=uid))
-
 	return render(request, 'site/profile.html', {
 		'my_courses': Course.objects.filter(authors__id=uid),
-		'awards': [Award.objects.get(id=1)]*5
+		#'awards': [Award.objects.get(id=uid)][:5]
 	})
+
+
+@csrf_exempt
+def make_course(request):
+	if request.method == 'GET':
+		return render(request, 'site/make_course.html', {
+			'form': CourseForm()
+		})
+	elif request.method == 'POST':
+		# name = request.POST["name"]
+		# description = request.POST["description"]
+		# theme = request.POST["theme"]
+		#category = request.POST["category"]
+		#authors = request.POST["authors"]
+		#photo = request.POST["photo"]
+		form = CourseForm(request.POST, request.FILES)
+		form.authors = request.user
+
+		if form.is_valid():
+			new_course = form.save()
+			new_course.save()
+
+			new_course.authors.add(request.user)
+			new_course.save()
+
+			return HttpResponseRedirect(f'/courses/{new_course.id}')
+		else:
+			return render(request, 'site/make_course.html', {
+				'form': CourseForm()
+			})
+
+
+def courses(request, course_id):
+	return render(request, 'site/courses.html', {
+		'course': Course.objects.filter(id=course_id),
+	})
+
+
+def edit_course(request, course_id):
+	return render(request, 'site/edit_course.html', {
+		'course': Course.objects.filter(id=course_id),
+	})
+
+
+def pass_course(request, course_id):
+	return render(request, 'site/pass_course.html', {
+		'course': Course.objects.filter(id=course_id),
+	})
+
+
+

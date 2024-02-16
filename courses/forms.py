@@ -13,3 +13,13 @@ class LoginForm(forms.ModelForm):
 	class Meta:
 		model = CustomUser
 		fields = ("username", "password")
+
+class CourseForm(forms.ModelForm):
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		for visible in self.visible_fields():
+			visible.field.widget.attrs['placeholder'] = visible.field.label
+
+	class Meta:
+		model = Course
+		fields = ("name", "description", "theme", "category", "photo")

@@ -1,0 +1,37 @@
+{% extends "site/base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/courses.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+
+        <div class="main-content">
+            <div class="course-information">
+                {% for c in course %}
+                <div class="course-info">
+                    <img class="course-logo" src="/media/{{ c.photo }}" alt="">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="filler">
+            <h1 class="name">{{ c.name }}</h1>
+            <h2 class="category">{{ c.category.name }}</h2>
+            <h2 class="theme">{{ c.theme }}</h2>
+            <h2 class="description">{{ c.description }}</h2>
+            {% if request.user in c.authors %}
+                <a class="clear" href="/pass_course/{{ c.id }}">Пройти курс</a>
+            {% else %}
+                <a class="clear" href="/edit_course/{{ c.id }}">Изменить курс</a>
+            {% endif %}
+        </div>
+                {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

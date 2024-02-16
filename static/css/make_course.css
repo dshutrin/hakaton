@@ -1,0 +1,61 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+
+.course-form {
+    width: 90%;
+    height: 90%;
+    display: flex;
+}
+
+.course-form > form {
+    margin: auto;
+    width: 30%;
+}
+
+.form-element {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.button_block {
+    width: 100%;
+    text-align: center;
+}
+
+.sub {
+    width: 60%;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--blue);
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.sub:hover {
+    background-color: var(--dark-green);
+}
+
+input {
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.form-element {
+    display: grid;
+    grid-template-columns: 90%; 10%;
+    text-align: center;
+}
+
+select {
+
+}
+
+::-webkit-file-upload-button {
+
+}
+

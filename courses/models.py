@@ -32,7 +32,7 @@ class CustomUser(AbstractBaseUser):
 	photo = models.ImageField(verbose_name='Фото', upload_to='user_photos', null=True, blank=True)
 
 	role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, default=None, blank=True)
-	awards = models.ManyToManyField(Award, verbose_name='Достижения')
+	awards = models.ManyToManyField(Award, verbose_name='Достижения', null=True, default=None, blank=True)
 
 	objects = CustomUserManager()
 	USERNAME_FIELD = 'username'
@@ -82,6 +82,11 @@ class Course(models.Model):
 	def __str__(self):
 		return self.name
 
+	def as_json(self):
+		return {
+			'id': self.id
+		}
+
 	class Meta:
 		verbose_name = 'Курс'
 		verbose_name_plural = 'Курсы'
@@ -105,3 +110,4 @@ class Note(models.Model):
 	class Meta:
 		verbose_name = 'Уведомление'
 		verbose_name_plural = 'Уведомления'
+
